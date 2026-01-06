@@ -1,0 +1,145 @@
+/* Import Inter font from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* CSS Reset & Base Styles */
+@layer base {
+  * {
+    @apply box-border;
+  }
+  
+  html {
+    @apply scroll-smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  body {
+    @apply m-0 p-0 font-sans text-dark-900 bg-light-100;
+    overflow-x: hidden;
+  }
+  
+  img {
+    @apply max-w-full h-auto;
+  }
+  
+  button {
+    @apply cursor-pointer;
+    font-family: inherit;
+  }
+  
+  a {
+    @apply no-underline;
+    color: inherit;
+  }
+}
+
+/* Custom Utility Classes */
+@layer components {
+  /* Glass Morphism Effect */
+  .glass-morphism {
+    @apply bg-glass-white backdrop-blur-md border border-white/20;
+  }
+  
+  .glass-morphism-hover {
+    @apply hover:bg-glass-whiteHover transition-all duration-300;
+  }
+  
+  /* Container */
+  .container-custom {
+    @apply max-w-[1400px] mx-auto px-16;
+  }
+  
+  /* Gradient Background */
+  .gradient-primary {
+    @apply bg-gradient-to-br from-primary-orange to-primary-coral;
+  }
+  
+  /* Text Styles */
+  .text-hero {
+    font-size: 5.5rem;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    @apply font-black text-dark-900 tracking-tight;
+  }
+  
+  .text-body {
+    @apply text-base font-normal text-dark-800 leading-relaxed;
+  }
+  
+  /* Card Styles */
+  .card-rounded {
+    @apply rounded-xl overflow-hidden;
+  }
+  
+  /* Hover Effects */
+  .hover-scale {
+    @apply transition-transform duration-300 ease-out hover:scale-105;
+  }
+  
+  .hover-lift {
+    @apply transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-card-hover;
+  }
+  
+  /* Screen Reader Only */
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+  }
+  
+  .sr-only:focus,
+  .focus\:not-sr-only:focus {
+    position: static;
+    width: auto;
+    height: auto;
+    padding: inherit;
+    margin: inherit;
+    overflow: visible;
+    clip: auto;
+    white-space: normal;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #FF4500;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #FF6B35;
+}
+
+/* Selection Color */
+::selection {
+  background: #FF4500;
+  color: white;
+}
+
+::-moz-selection {
+  background: #FF4500;
+  color: white;
+}
+
+/* Focus Visible (Accessibility) */
+:focus-visible {
+  @apply outline-2 outline-primary-orange outline-offset-2;
+}
