@@ -22,7 +22,7 @@ const ImageCard = ({
       onHoverStart={() => setIsHovered(true)}
       onHoverEnd={() => setIsHovered(false)}
       className="
-        relative rounded-3xl overflow-hidden
+        relative rounded-[2rem] overflow-hidden
         cursor-pointer
         w-full h-full
         shadow-md

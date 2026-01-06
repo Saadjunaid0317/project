@@ -10,49 +10,44 @@ const HeroSection = () => {
   const isDesktop = !isMobile && !isTablet;
 
   return (
-    <section id="main-content" className="bg-[#FAF9F6] min-h-screen p-8 pt-0">
-      <div className="gradient-primary rounded-[48px] min-h-[calc(100vh-4rem)] p-16 relative overflow-hidden">
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          animate="visible"
-          className="max-w-[1400px] mx-auto"
-        >
+    <section className="px-12 pb-12">
+      <motion.div
+        variants={containerVariants}
+        initial="hidden"
+        animate="visible"
+        className="max-w-[1400px] mx-auto"
+      >
           {/* Desktop Layout */}
           {isDesktop && (
             <>
               {/* HEADLINE - OUTSIDE GRID */}
               <motion.div
                 variants={headlineVariants}
-                className="mb-8 flex items-start justify-between"
+                className="mb-6 flex items-start justify-between"
               >
-                <div className="flex items-start gap-4">
+                <div className="flex items-start gap-5">
                   {/* Red Accent - THREE HORIZONTAL BARS */}
-                  <div className="flex flex-col gap-1 mt-4">
-                    <div className="w-14 h-2 bg-[#E63946] rounded-full" />
-                    <div className="w-14 h-2 bg-[#E63946] rounded-full" />
-                    <div className="w-14 h-2 bg-[#E63946] rounded-full" />
+                  <div className="flex flex-col gap-1.5 mt-5">
+                    <div className="w-16 h-2 bg-[#C1121F] rounded-sm" />
+                    <div className="w-16 h-2 bg-[#C1121F] rounded-sm" />
+                    <div className="w-16 h-2 bg-[#C1121F] rounded-sm" />
                   </div>
                   
-                  <h1 className="text-[5.5rem] font-black text-[#1A1A1A] leading-[0.95] tracking-tighter">
-                    DESIGNING SPACES
-                    <br />
-                    FOR MODERN
-                    <br />
-                    LIFE
+                  <h1 className="text-[6.5rem] font-black text-[#0A0A0A] leading-[0.88] tracking-[-0.04em] uppercase" style={{fontFamily: 'Inter, system-ui, sans-serif', fontWeight: 900}}>
+                    DESIGNING<br/>SPACES<br/>FOR MODERN<br/>LIFE
                   </h1>
                 </div>
 
                 {/* Top Right Description Text */}
-                <div className="max-w-[280px] text-right">
-                  <p className="text-sm text-[#2D2D2D] leading-relaxed">
+                <div className="max-w-[240px] text-right mt-2">
+                  <p className="text-[13px] text-[#2D2D2D] leading-relaxed font-normal">
                     Westie blends minimal design and thoughtful planning to create calm, functional and timeless homes.
                   </p>
                 </div>
               </motion.div>
 
-              {/* GRID LAYOUT - 3 COLUMNS × 2 ROWS */}
-              <div className="grid grid-cols-[1.2fr_1.2fr_1fr] grid-rows-[1fr_0.7fr] gap-6 h-[600px]">
+              {/* GRID LAYOUT - Adjusted proportions */}
+              <div className="grid grid-cols-[2fr_1.8fr_1.5fr] grid-rows-[380px_240px] gap-5">
                 
                 {/* Large Stairs Image - Spans 2 columns, 1 row */}
                 <div className="col-span-2 row-span-1">
@@ -99,20 +94,20 @@ const HeroSection = () => {
           {/* Tablet Layout */}
           {isTablet && (
             <>
-              <motion.div variants={headlineVariants} className="mb-8">
+              <motion.div variants={headlineVariants} className="mb-6">
                 <div className="flex items-start gap-4">
                   <div className="flex flex-col gap-1 mt-3">
-                    <div className="w-12 h-1.5 bg-[#E63946] rounded-full" />
-                    <div className="w-12 h-1.5 bg-[#E63946] rounded-full" />
-                    <div className="w-12 h-1.5 bg-[#E63946] rounded-full" />
+                    <div className="w-12 h-1.5 bg-[#C1121F] rounded-sm" />
+                    <div className="w-12 h-1.5 bg-[#C1121F] rounded-sm" />
+                    <div className="w-12 h-1.5 bg-[#C1121F] rounded-sm" />
                   </div>
-                  <h1 className="text-6xl font-black text-[#1A1A1A] leading-tight tracking-tighter">
+                  <h1 className="text-6xl font-black text-[#0A0A0A] leading-tight tracking-tighter uppercase">
                     DESIGNING SPACES FOR MODERN LIFE
                   </h1>
                 </div>
               </motion.div>
 
-              <div className="grid grid-cols-2 gap-5">
+              <div className="grid grid-cols-2 gap-4">
                 <div className="col-span-2">
                   <ImageCard 
                     image="/images/big.png"
@@ -149,14 +144,14 @@ const HeroSection = () => {
 
           {/* Mobile Layout */}
           {isMobile && (
-            <div className="flex flex-col gap-4">
-              <div className="flex items-start gap-3 mb-6">
+            <div className="flex flex-col gap-4 pt-4">
+              <div className="flex items-start gap-3 mb-4">
                 <div className="flex flex-col gap-1 mt-2">
-                  <div className="w-10 h-1.5 bg-[#E63946] rounded-full" />
-                  <div className="w-10 h-1.5 bg-[#E63946] rounded-full" />
-                  <div className="w-10 h-1.5 bg-[#E63946] rounded-full" />
+                  <div className="w-10 h-1.5 bg-[#C1121F] rounded-sm" />
+                  <div className="w-10 h-1.5 bg-[#C1121F] rounded-sm" />
+                  <div className="w-10 h-1.5 bg-[#C1121F] rounded-sm" />
                 </div>
-                <h1 className="text-5xl font-black text-[#1A1A1A] leading-tight tracking-tighter">
+                <h1 className="text-4xl font-black text-[#0A0A0A] leading-tight tracking-tighter uppercase">
                   DESIGNING SPACES FOR MODERN LIFE
                 </h1>
               </div>
@@ -181,7 +176,6 @@ const HeroSection = () => {
             </div>
           )}
         </motion.div>
-      </div>
     </section>
   );
 };

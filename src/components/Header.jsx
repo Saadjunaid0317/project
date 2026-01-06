@@ -7,65 +7,72 @@ const Header = () => {
 
   return (
     <motion.header
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
+      initial={{ y: -50, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.6, ease: 'easeOut' }}
-      className="sticky top-0 z-50 h-20 px-16 flex items-center justify-between bg-transparent"
+      className="h-20 px-12 pt-6 flex items-center justify-between"
     >
       {/* Logo */}
       <div className="flex items-center gap-2">
-        <img 
-          src="/images/log-removebg-preview.svg" 
-          alt="Westie Logo" 
-          className="h-8 w-auto"
-          onError={(e) => {
-            e.target.outerHTML = '<div class="flex items-center gap-2"><svg width="20" height="20" viewBox="0 0 20 20" class="text-white"><path d="M10 2L2 6v6c0 5 8 8 8 8s8-3 8-8V6l-8-4z" fill="currentColor"/></svg><span class="text-white text-xl font-bold tracking-tight">WESTIE</span></div>';
-          }}
-        />
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" className="text-white">
+          <path d="M12 3L3 7.5v7C3 19.5 12 23 12 23s9-3.5 9-8.5v-7L12 3z" fill="currentColor" stroke="currentColor" strokeWidth="1.5"/>
+        </svg>
+        <span className="text-white text-xl font-bold tracking-tight">WESTIE</span>
       </div>
 
       {/* Navigation */}
       <nav className="flex items-center gap-2" aria-label="Main navigation">
         {navItems.map((item, index) => (
-          <button
+          <motion.button
             key={item}
             onClick={() => setActiveNav(item)}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
             className={`
-              px-6 py-2 rounded-full text-[15px] font-medium text-white
+              px-5 py-2 rounded-full text-[14px] font-medium text-white
               transition-all duration-300
-              ${index === 0 && activeNav === item
+              ${activeNav === item && index === 0
                 ? 'bg-[#1A1A1A]' 
                 : 'bg-transparent hover:bg-white/15'
               }
             `}
           >
             {item}
-          </button>
+          </motion.button>
         ))}
       </nav>
 
       {/* Contact Button & Settings */}
       <div className="flex items-center gap-3">
-        <button className="
-          px-6 py-2.5 rounded-full
-          bg-white/10 border border-white/20
-          text-white text-sm font-medium
-          hover:bg-white/20 transition-all duration-300
-        ">
+        <motion.button 
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+          className="
+            px-5 py-2 rounded-full
+            bg-white/10 border border-white/25
+            text-white text-[14px] font-medium
+            hover:bg-white/20 transition-all duration-300
+          "
+        >
           Contact Us
-        </button>
+        </motion.button>
         
-        <button className="
-          w-10 h-10 rounded-full
-          bg-white/10 border border-white/20
-          flex items-center justify-center text-white
-          hover:bg-white/20 transition-all duration-300
-        ">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-            <circle cx="12" cy="12" r="3"/>
-            <path d="M12 1v6m0 6v6m8.66-13.66l-4.24 4.24m-4.24 4.24l-4.24 4.24m13.66 0l-4.24-4.24m-4.24-4.24l-4.24-4.24"/>
+        <motion.button 
+          whileHover={{ rotate: 90, scale: 1.1 }}
+          whileTap={{ scale: 0.9 }}
+          transition={{ duration: 0.3 }}
+          className="
+            w-10 h-10 rounded-full
+            bg-white/10 border border-white/25
+            flex items-center justify-center text-white
+            hover:bg-white/20 transition-all duration-300
+          "
+        >
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+            <circle cx="12" cy="12" r="2.5"/>
+            <path d="M12 2v4m0 12v4m8-10h-4m-12 0h4m11.3-5.3l-2.8 2.8m-8.5 8.5l-2.8 2.8m11.3 0l-2.8-2.8m-8.5-8.5l-2.8-2.8"/>
           </svg>
-        </button>
+        </motion.button>
       </div>
     </motion.header>
   );
