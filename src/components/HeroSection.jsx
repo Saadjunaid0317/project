@@ -46,19 +46,57 @@ const HeroSection = () => {
                 </div>
               </motion.div>
 
-              {/* GRID LAYOUT - Adjusted proportions */}
-              <div className="grid grid-cols-[2fr_1.8fr_1.5fr] grid-rows-[380px_240px] gap-5">
+              {/* GRID LAYOUT */}
+              <div className="grid grid-cols-[2.2fr_1.8fr] grid-rows-[420px_280px] gap-5">
                 
-                {/* Large Stairs Image - Spans 2 columns, 1 row */}
-                <div className="col-span-2 row-span-1">
-                  <ImageCard 
-                    image="/images/big.png"
-                    alt="Modern minimalist staircase with dramatic orange lighting"
-                  />
+                {/* LARGE STAIRS IMAGE - THREE ROUNDED SECTIONS */}
+                <div className="col-span-1 row-span-1 h-full flex gap-3">
+                  
+                  {/* Section 1: Sofa area (LEFT) */}
+                  <motion.div 
+                    whileHover={{ scale: 1.02 }}
+                    transition={{ duration: 0.3 }}
+                    className="flex-[1.3] relative rounded-t-[2rem] rounded-b-[3rem] overflow-hidden shadow-lg cursor-pointer"
+                  >
+                    <img 
+                      src="/images/big.png" 
+                      alt="Modern interior with red sofa"
+                      className="w-full h-full object-cover hover:scale-110 transition-transform duration-500"
+                      style={{ objectPosition: '0% center' }}
+                    />
+                  </motion.div>
+                  
+                  {/* Section 2: Stairs (MIDDLE - LARGEST) */}
+                  <motion.div 
+                    whileHover={{ scale: 1.02 }}
+                    transition={{ duration: 0.3 }}
+                    className="flex-[2.5] relative rounded-t-[2rem] rounded-b-[3rem] overflow-hidden shadow-lg cursor-pointer"
+                  >
+                    <img 
+                      src="/images/big.png" 
+                      alt="Orange illuminated staircase"
+                      className="w-full h-full object-cover hover:scale-110 transition-transform duration-500"
+                      style={{ objectPosition: '40% center' }}
+                    />
+                  </motion.div>
+                  
+                  {/* Section 3: Wall with tree (RIGHT) */}
+                  <motion.div 
+                    whileHover={{ scale: 1.02 }}
+                    transition={{ duration: 0.3 }}
+                    className="flex-[1.2] relative rounded-t-[2rem] rounded-b-[3rem] overflow-hidden shadow-lg cursor-pointer"
+                  >
+                    <img 
+                      src="/images/big.png" 
+                      alt="Minimalist wall with tree"
+                      className="w-full h-full object-cover hover:scale-110 transition-transform duration-500"
+                      style={{ objectPosition: '100% center' }}
+                    />
+                  </motion.div>
                 </div>
                 
-                {/* Tall Pool Image - Right side, spans 2 rows */}
-                <div className="col-start-3 row-span-2">
+                {/* TALL POOL IMAGE (Right side, spans 2 rows) */}
+                <div className="col-start-2 row-span-2 h-full">
                   <ImageCard 
                     image="/images/water.png"
                     hasGlassOverlay={true}
@@ -66,20 +104,20 @@ const HeroSection = () => {
                       title: "Design Philosophy",
                       description: "Learn how our principles shape every home we create, from concept to completion."
                     }}
-                    alt="Modern pool with architectural overhang at dusk"
+                    alt="Modern pool with architectural overhang"
                   />
                 </div>
                 
-                {/* Small Image - Bottom left */}
-                <div className="col-start-1 row-start-2">
+                {/* SMALL IMAGE (Bottom left) */}
+                <div className="col-start-1 row-start-2 h-full" style={{ maxWidth: '45%' }}>
                   <ImageCard 
                     image="/images/small.png"
                     alt="Contemporary architecture exterior detail"
                   />
                 </div>
                 
-                {/* Glass Card - Bottom middle */}
-                <div className="col-start-2 row-start-2">
+                {/* GLASS CARD (Bottom middle-right area) */}
+                <div className="col-start-1 row-start-2 h-full ml-auto" style={{ width: '52%' }}>
                   <GlassCard 
                     title="At Westie, we design homes where form and function work in perfect balance."
                     description="Clean architecture, natural light, and thoughtful details come together to create spaces that feel simple, durable, and effortlessly comfortable."
