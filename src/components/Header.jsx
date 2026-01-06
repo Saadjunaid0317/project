@@ -14,8 +14,8 @@ const Header = () => {
     >
       {/* Logo */}
       <div className="flex items-center gap-2">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" className="text-[#0A0A0A]">
-          <path d="M12 3L3 7.5v7C3 19.5 12 23 12 23s9-3.5 9-8.5v-7L12 3z" fill="currentColor" stroke="currentColor" strokeWidth="1.5"/>
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" className="text-[#0A0A0A]">
+          <path d="M12 2L13.5 8.5L20 10L13.5 11.5L12 18L10.5 11.5L4 10L10.5 8.5L12 2Z" fill="currentColor"/>
         </svg>
         <span className="text-[#0A0A0A] text-xl font-bold tracking-tight">WESTIE</span>
       </div>
@@ -33,7 +33,7 @@ const Header = () => {
               transition-all duration-300
               ${activeNav === item
                 ? 'bg-[#1A1A1A] text-white' 
-                : 'bg-white text-[#0A0A0A] hover:bg-white/80 border border-gray-200'
+                : 'bg-transparent text-[#0A0A0A] hover:bg-black/5 border border-black/20'
               }
             `}
           >
@@ -49,9 +49,9 @@ const Header = () => {
           whileTap={{ scale: 0.95 }}
           className="
             px-5 py-2 rounded-full
-            bg-white border border-gray-200
+            bg-transparent border border-black/20
             text-[#0A0A0A] text-[14px] font-medium
-            hover:bg-white/80 transition-all duration-300
+            hover:bg-black/5 transition-all duration-300
           "
         >
           Contact Us
@@ -63,9 +63,9 @@ const Header = () => {
           transition={{ duration: 0.3 }}
           className="
             w-10 h-10 rounded-full
-            bg-white border border-gray-200
+            bg-transparent border border-black/20
             flex items-center justify-center text-[#0A0A0A]
-            hover:bg-white/80 transition-all duration-300
+            hover:bg-black/5 transition-all duration-300
           "
         >
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">

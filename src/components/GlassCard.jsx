@@ -15,19 +15,19 @@ const GlassCard = ({
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, delay: 0.4 }}
       className="
-        bg-white/80 backdrop-blur-xl
-        border border-gray-200
+        bg-[#E8F1F8]/80 backdrop-blur-lg
+        border border-white/60
         rounded-3xl p-7
         flex flex-col justify-between
         h-full
-        shadow-lg
+        shadow-md
       "
     >
       <div>
-        <p className="text-[14px] font-normal text-[#0A0A0A] leading-snug mb-4">
+        <p className="text-[14px] font-medium text-[#0A0A0A] leading-snug mb-4">
           {title}
         </p>
-        <p className="text-[13px] text-[#2D2D2D] leading-relaxed mb-5 opacity-95">
+        <p className="text-[13px] text-[#1A1A1A] leading-relaxed mb-5">
           {description}
         </p>
       </div>

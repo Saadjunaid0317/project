@@ -33,8 +33,8 @@ const HeroSection = () => {
                     <div className="w-16 h-2 bg-[#C1121F] rounded-sm" />
                   </div>
                   
-                  <h1 className="text-[6.5rem] font-black text-[#0A0A0A] leading-[0.88] tracking-[-0.04em] uppercase" style={{fontFamily: 'Inter, system-ui, sans-serif', fontWeight: 900}}>
-                    DESIGNING<br/>SPACES<br/>FOR MODERN<br/>LIFE
+                  <h1 className="text-[6.5rem] font-black text-[#0A0A0A] leading-[0.85] tracking-[-0.05em] uppercase" style={{fontFamily: 'Inter, system-ui, sans-serif', fontWeight: 900}}>
+                    DESIGNING SPACES<br/>FOR MODERN<br/>LIFE
                   </h1>
                 </div>
 

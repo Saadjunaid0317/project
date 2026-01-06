@@ -34,6 +34,11 @@ const ImageCard = ({
         alt={alt}
         loading="lazy"
         onLoad={() => setImageLoaded(true)}
+        onError={(e) => {
+          console.error('Image failed to load:', image);
+          e.target.style.display = 'none';
+          setImageLoaded(true);
+        }}
         className={`
           w-full h-full object-cover object-center
           transition-transform duration-500 ease-out
@@ -86,7 +91,9 @@ const ImageCard = ({
 
       {/* Loading Placeholder */}
       {!imageLoaded && (
-        <div className="absolute inset-0 bg-gray-200 animate-pulse" />
+        <div className="absolute inset-0 bg-gradient-to-br from-gray-100 to-gray-200 animate-pulse flex items-center justify-center">
+          <span className="text-gray-400 text-sm">Loading...</span>
+        </div>
       )}
     </motion.div>
   );
