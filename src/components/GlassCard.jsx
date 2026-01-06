@@ -1,6 +1,5 @@
 import { motion } from 'framer-motion';
 import CTAButton from './CTAButton';
-import { glassCardVariants } from '../utils/animations';
 
 const GlassCard = ({ 
   title, 
@@ -12,21 +11,23 @@ const GlassCard = ({
   return (
     <motion.div
       style={{ gridArea }}
-      variants={glassCardVariants}
-      initial="hidden"
-      animate="visible"
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6, delay: 0.4 }}
       className="
-        bg-white/70 backdrop-blur-sm border border-dark-900/10 shadow-md
-        rounded-3xl p-10
+        bg-white/15 backdrop-blur-lg
+        border border-white/30
+        rounded-3xl p-8
         flex flex-col justify-between
-        min-h-full
+        h-full
+        shadow-xl
       "
     >
       <div>
-        <h3 className="text-lg font-semibold text-dark-900 mb-4 tracking-tight">
+        <p className="text-[15px] font-normal text-[#1A1A1A] leading-relaxed mb-6">
           {title}
-        </h3>
-        <p className="text-[15px] font-normal text-dark-800 leading-relaxed mb-6 max-w-[90%]">
+        </p>
+        <p className="text-sm text-[#2D2D2D] leading-relaxed mb-6 opacity-90">
           {description}
         </p>
       </div>

@@ -59,19 +59,26 @@ const ImageCard = ({
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.5, duration: 0.6 }}
+          transition={{ delay: 0.6, duration: 0.6 }}
           className="
-            absolute bottom-8 right-8
-            bg-white/90 backdrop-blur-sm
-            rounded-2xl p-6 shadow-xl
-            max-w-[320px]
-            border border-white/20
+            absolute bottom-6 right-6
+            bg-[#1A1A1A]/80 backdrop-blur-md
+            border border-white/10
+            rounded-2xl p-6
+            max-w-[280px]
           "
         >
-          <h4 className="text-base font-semibold text-dark-900 mb-2">
-            {overlayContent.title}
-          </h4>
-          <p className="text-sm text-dark-800 leading-relaxed">
+          <div className="flex items-center justify-between mb-3">
+            <h4 className="text-sm font-semibold text-white">
+              {overlayContent.title}
+            </h4>
+            <div className="w-8 h-8 bg-white rounded-full flex items-center justify-center">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                <path d="M6 12L10 8L6 4" stroke="#1A1A1A" strokeWidth="2" strokeLinecap="round"/>
+              </svg>
+            </div>
+          </div>
+          <p className="text-xs text-white/80 leading-relaxed">
             {overlayContent.description}
           </p>
         </motion.div>

@@ -1,15 +1,8 @@
 import { useState } from 'react';
-import { FiSettings } from 'react-icons/fi';
-import NavigationPill from './NavigationPill';
-import { useScrollPosition } from '../hooks/useScrollPosition';
 import { motion } from 'framer-motion';
 
 const Header = () => {
-  const scrollPosition = useScrollPosition();
   const [activeNav, setActiveNav] = useState('Models');
-  
-  const scrolled = scrollPosition > 50;
-  
   const navItems = ['Models', 'Services', 'Shop', 'Purchase', 'Contact'];
 
   return (
@@ -17,75 +10,62 @@ const Header = () => {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.6, ease: 'easeOut' }}
-      className={`
-        sticky top-0 z-50 h-20 px-16
-        flex items-center justify-between
-        transition-all duration-300
-        ${scrolled 
-          ? 'bg-white/80 backdrop-blur-lg border-b border-dark-900/10 shadow-sm' 
-          : 'bg-white'
-        }
-      `}
+      className="sticky top-0 z-50 h-20 px-16 flex items-center justify-between bg-transparent"
     >
       {/* Logo */}
-      <div className="flex items-center">
+      <div className="flex items-center gap-2">
         <img 
           src="/images/log-removebg-preview.svg" 
           alt="Westie Logo" 
           className="h-8 w-auto"
           onError={(e) => {
-            // Fallback if logo not available
-            e.target.style.display = 'none';
-            e.target.parentElement.innerHTML = '<div class="text-dark-900 text-xl font-bold">WESTIE</div>';
+            e.target.outerHTML = '<div class="flex items-center gap-2"><svg width="20" height="20" viewBox="0 0 20 20" class="text-white"><path d="M10 2L2 6v6c0 5 8 8 8 8s8-3 8-8V6l-8-4z" fill="currentColor"/></svg><span class="text-white text-xl font-bold tracking-tight">WESTIE</span></div>';
           }}
         />
       </div>
 
       {/* Navigation */}
-      <nav className="flex items-center gap-3" aria-label="Main navigation">
-        {navItems.map((item) => (
-          <NavigationPill
+      <nav className="flex items-center gap-2" aria-label="Main navigation">
+        {navItems.map((item, index) => (
+          <button
             key={item}
-            label={item}
-            isActive={activeNav === item}
             onClick={() => setActiveNav(item)}
-            href={`#${item.toLowerCase()}`}
-          />
+            className={`
+              px-6 py-2 rounded-full text-[15px] font-medium text-white
+              transition-all duration-300
+              ${index === 0 && activeNav === item
+                ? 'bg-[#1A1A1A]' 
+                : 'bg-transparent hover:bg-white/15'
+              }
+            `}
+          >
+            {item}
+          </button>
         ))}
       </nav>
 
-      {/* Contact Button */}
+      {/* Contact Button & Settings */}
       <div className="flex items-center gap-3">
-        <motion.button
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-          className="
-            px-6 py-2.5 rounded-pill
-            bg-white border border-dark-900/10
-            text-dark-700 text-sm font-medium
-            hover:bg-light-100
-            transition-all duration-300
-            flex items-center gap-2
-          "
-          aria-label="Contact us"
-        >
+        <button className="
+          px-6 py-2.5 rounded-full
+          bg-white/10 border border-white/20
+          text-white text-sm font-medium
+          hover:bg-white/20 transition-all duration-300
+        ">
           Contact Us
-        </motion.button>
+        </button>
         
-        <motion.button
-          whileHover={{ rotate: 90 }}
-          transition={{ duration: 0.3 }}
-          className="
-            w-10 h-10 rounded-full
-            bg-white border border-dark-900/10
-            flex items-center justify-center
-            text-dark-700 hover:bg-light-100
-            transition-all duration-300
-          "
-          aria-label="Settings"
-        >
-          <FiSettings size={18} />
-        </motion.button>
+        <button className="
+          w-10 h-10 rounded-full
+          bg-white/10 border border-white/20
+          flex items-center justify-center text-white
+          hover:bg-white/20 transition-all duration-300
+        ">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+            <circle cx="12" cy="12" r="3"/>
+            <path d="M12 1v6m0 6v6m8.66-13.66l-4.24 4.24m-4.24 4.24l-4.24 4.24m13.66 0l-4.24-4.24m-4.24-4.24l-4.24-4.24"/>
+          </svg>
+        </button>
       </div>
     </motion.header>
   );
