@@ -15,8 +15,8 @@ const GlassCard = ({
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, delay: 0.4 }}
       className="
-        bg-white/20 backdrop-blur-md
-        border border-white/40
+        bg-white/80 backdrop-blur-xl
+        border border-gray-200
         rounded-3xl p-7
         flex flex-col justify-between
         h-full
